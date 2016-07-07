@@ -104,4 +104,12 @@ public class BattleshipServis {
 		return randomNumber.nextInt(maxNumber) + 0;
 	}
 
+	public void addShips(int shipSize, int numberOfShips) {
+
+		for (int x = 0; x < numberOfShips; x++) {
+			addShip(shipSize);
+		}
+
+	}
+
 }

@@ -14,48 +14,46 @@ import org.battleship.servis.BattleshipServis;
 /**
  * Servlet implementation class BattleshipServlet
  */
-//@WebServlet("/BattleshipServlet")
+// @WebServlet("/BattleshipServlet")
 public class BattleshipServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BattleshipServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		BattleshipServis battleshipServis = new BattleshipServis();
-		battleshipServis.fillMatrix();
-		battleshipServis.addShip(4);
-		battleshipServis.addShip(3);
-		battleshipServis.addShip(3);
-		battleshipServis.addShip(2);
-		battleshipServis.addShip(2);
-		battleshipServis.addShip(2);
-		battleshipServis.addShip(1);
-		battleshipServis.addShip(1);
-		battleshipServis.addShip(1);
-		battleshipServis.addShip(1);
-		
-		request.setAttribute("battleshipMap", battleshipServis.getBattleshipMap());
-		
-		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-		view.forward(request, response);
-		
+	public BattleshipServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		BattleshipServis battleshipServis = new BattleshipServis();
+		battleshipServis.fillMatrix();
+		battleshipServis.addShips(4,1);
+		battleshipServis.addShips(3,2);
+		battleshipServis.addShips(2,3);
+		battleshipServis.addShips(1,4);
+
+		request.setAttribute("battleshipMap", battleshipServis.getBattleshipMap());
+
+		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+		view.forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
